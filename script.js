@@ -18,7 +18,6 @@ function generatePassword() {
   var criteria = {
     length: prompt("Enter password length. (must be between 8 and 128 characters long)")
   }
-
   // This if statement checks if criteria.length is between 8 and 128 characters long and stops the function generatePassword
   // if criteria.length is smaller than 8 or bigger than 128.
   if (criteria.length < 8) {
@@ -39,7 +38,6 @@ function generatePassword() {
     numbers: confirm("Include numbers in the password?"),
     special: confirm("Include special characters in the password?")
   }
-  
   // This if statement gives the user an error if none of the character types are set to true.
   if (criteria.lowerCase !== true && criteria.upperCase !== true && 
     criteria.numbers !== true && criteria.special !== true) {
@@ -47,7 +45,21 @@ function generatePassword() {
       return;
   }
 
+  // make an if statement with for loop that randomly generates a number based on how many chartypes were selected (if more than one)
+  var numCharTypes = 0;
+  
+  if (criteria.lowerCase == true) {
+    numCharTypes++;
+  } if (criteria.upperCase == true) {
+    numCharTypes++;
+  } if (criteria.numbers == true) {
+    numCharTypes++;
+  } if (criteria.special == true) {
+    numCharTypes++;
+  }
+
   console.log(criteria);
+  console.log(numCharTypes);
 };
 
 
