@@ -37,28 +37,24 @@ function writePassword() {
             alert("At least one type of character needs to be selected.");
             return;
         }
-        for (var i = 0; i < 4; i++) {
+        for (var i = 3; i > -1; i--) {
             if (charTypes[i] == true) {
                 charTypes[i] = typeIndex[i];
+            } else {
+                charTypes.splice(i, 1);
             }
         }
+        
+        var randomType = Math.floor(Math.random() * charTypes.length);
+        // for (var i = 0; i < pwdLength; i++) {
 
-        // if (charTypes[0] == true) {
-        //     charTypes[0] = "lower";
-        // }
-        // if (charTypes[1] == true) {
-        //     charTypes[1] = "upper";
-        // }
-        // if (charTypes[2] == true) {
-        //     charTypes[2] = "number";
-        // }
-        // if (charTypes[3] == true) {
-        //     charTypes[3] = "special";
         // }
 
-
+        console.log(randomType);
+        console.log(typeof(charTypes[0]));
         console.log(pwdLength);
         console.log(charTypes);
+        console.log(charTypes.length);
     }
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
