@@ -10,6 +10,8 @@ var numIndex = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var spIndex = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "_", "-", "+", "=", "`", "|", "/", "(", ")",
 "{", "}", "[", "]", ":", ";", "<", ">", ",", ".", "?"];
 
+var typeIndex = ["lower", "upper", "number", "special"];
+
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
@@ -35,18 +37,27 @@ function writePassword() {
             alert("At least one type of character needs to be selected.");
             return;
         }
-        if (charTypes[0] == true) {
-            charTypes[0] = "lower";
+        for (var i = 0; i < 4; i++) {
+            if (charTypes[i] == true) {
+                charTypes[i] = typeIndex[i];
+            }
         }
-        if (charTypes[1] == true) {
-            charTypes[1] = "upper";
-        }
-        if (charTypes[2] == true) {
-            charTypes[2] = "number";
-        }
-        if (charTypes[3] == true) {
-            charTypes[3] = "special";
-        }
+
+        // if (charTypes[0] == true) {
+        //     charTypes[0] = "lower";
+        // }
+        // if (charTypes[1] == true) {
+        //     charTypes[1] = "upper";
+        // }
+        // if (charTypes[2] == true) {
+        //     charTypes[2] = "number";
+        // }
+        // if (charTypes[3] == true) {
+        //     charTypes[3] = "special";
+        // }
+
+
+        console.log(pwdLength);
         console.log(charTypes);
     }
   var password = generatePassword();
