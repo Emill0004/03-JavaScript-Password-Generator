@@ -26,6 +26,15 @@ function writePassword() {
             alert("Password does not contain a number.");
             return;
           }
+          var charTypes = [confirm("Include lowercase characters in the password?")];
+          charTypes.push(confirm("Include uppercase characters in the password?"));
+          charTypes.push(confirm("Include numbers in the password?"));
+          charTypes.push(confirm("Include special characters in the password?"));
+          if (charTypes[0] !== true && charTypes[1] !== true && 
+              charTypes[2] !== true && charTypes[3] !== true) {
+                alert("At least one type of character needs to be selected.");
+                return;
+          }
     }
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
