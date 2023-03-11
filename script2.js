@@ -17,6 +17,7 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
     function generatePassword() {
+        var protoPassword = "";
         var pwdLength = prompt("Enter password length. (must be between 8 and 128 characters long)");
         if (pwdLength < 8) {
             alert("The password must be at least 8 characters long.");
@@ -45,16 +46,34 @@ function writePassword() {
             }
         }
         
-        var randomType = Math.floor(Math.random() * charTypes.length);
-        // for (var i = 0; i < pwdLength; i++) {
-
-        // }
+        var randomType;
+        var randomChar;
+        for (var i = 0; i < pwdLength; i++) {
+            randomType = Math.floor(Math.random() * charTypes.length);
+            if (charTypes[randomType] == "lower") {
+                randomChar = Math.floor(Math.random() * lowIndex.length);
+                protoPassword += lowIndex[randomChar];
+            } else if (charTypes[randomType] == "upper") {
+                randomChar = Math.floor(Math.random() * upIndex.length);
+                protoPassword += upIndex[randomChar];
+            } else if (charTypes[randomType] == "number") {
+                randomChar = Math.floor(Math.random() * numIndex.length);
+                protoPassword += numIndex[randomChar];
+            } else if (charTypes[randomType] == "special") {
+                randomChar = Math.floor(Math.random() * spIndex.length);
+                protoPassword += spIndex[randomChar];
+            }
+            
+        }
 
         console.log(randomType);
         console.log(typeof(charTypes[0]));
         console.log(pwdLength);
         console.log(charTypes);
         console.log(charTypes.length);
+        console.log(protoPassword);
+        console.log(protoPassword.length);
+        return protoPassword;
     }
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
