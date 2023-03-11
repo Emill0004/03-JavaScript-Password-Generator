@@ -15,7 +15,17 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
     function generatePassword() {
-        
+        var pwdLength = prompt("Enter password length. (must be between 8 and 128 characters long)");
+        if (pwdLength < 8) {
+            alert("The password must be at least 8 characters long.");
+            return;
+          } else if (pwdLength > 128) {
+            alert("The password must not be over 128 characters long.")
+            return;
+          } else if (!/\d/.test(pwdLength)) {
+            alert("Password does not contain a number.");
+            return;
+          }
     }
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
